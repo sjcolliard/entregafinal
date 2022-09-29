@@ -1,0 +1,74 @@
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    margin: 5rem;
+}
+
+/* header */
+
+.header__logo {
+    height: 5rem;
+
+}
+
+
+/* elementos recurrentes */
+
+.titulo {}
+
+.subtitulo {}
+
+.boton {
+    background-color: hotpink;
+    text-align: center;
+}
+
+
+/* navbar */
+.barraNavegación {
+    background-color: hotpink;
+}
+
+.hotpink {
+    color: hotpink;
+}
+
+
+/* imágenes libros */
+/* 750px x 500px */
+
+
+/* contenedores */
+
+.lanzamientos {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+
+/* cards */
+
+.card-texto {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-titulo {
+    font-size: 1rem;
+}
+
+.card-parrafo {
+    font-size: 0.8rem;
+    color: #414141;
+}
+
+.card-body {
+    justify-content: baseline;
+}
