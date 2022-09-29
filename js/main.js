@@ -1,7 +1,8 @@
 // Segunda entrega - carrito tienda de ebooks 
 
 class Libro {
-    constructor(titulo, autor, genero, isbn, precio, tapa, cantidad) {
+    constructor(id, titulo, autor, genero, isbn, precio, tapa, cantidad) {
+        this.id = parseInt(id);
         this.titulo = titulo;
         this.autor = autor;
         this.genero = genero;
@@ -14,11 +15,11 @@ class Libro {
 
 const stockLibros = [];
 
-const misery = new Libro("Misery", "Stephen King", "terror", 9788466345262, 299.99, "misery.jpg", 1);
-const elResplandor = new Libro("El resplandor", "Stephen King", "terror", 9788499899275, 349.99, "resplandor.jpg", 1);
-const elAmorEn = new Libro("El amor en los tiempos del cólera", "Gabriel García Márquez", "realismo mágico", 9788439735625, 499.99, "colera.jpg", 1);
-const cienAnios = new Libro("Cien años de soledad", "Gabriel García Márquez", "realismo mágico", 9788439732471, 549.99, "soledad.jpg", 1);
-const muerteAnunciada = new Libro("Crónica de una muerte anunciada", "Gabriel García Márquez", "realismo mágico", 9500726076, 299.99, "anunciada.jpg", 1);
+const misery = new Libro(1, "Misery", "Stephen King", "terror", 9788466345262, 299.99, "misery.jpg", 1);
+const elResplandor = new Libro(2, "El resplandor", "Stephen King", "terror", 9788499899275, 349.99, "resplandor.jpg", 1);
+const elAmorEn = new Libro(3, "El amor en los tiempos del cólera", "Gabriel García Márquez", "realismo mágico", 9788439735625, 499.99, "colera.jpg", 1);
+const cienAnios = new Libro(4, "Cien años de soledad", "Gabriel García Márquez", "realismo mágico", 9788439732471, 549.99, "soledad.jpg", 1);
+const muerteAnunciada = new Libro(5, "Crónica de una muerte anunciada", "Gabriel García Márquez", "realismo mágico", 9500726076, 299.99, "anunciada.jpg", 1);
 
 stockLibros.push(misery);
 stockLibros.push(elResplandor);
@@ -105,7 +106,7 @@ function actualizarCarrito() {
                             </div>
 
                             <div>
-                                <button onClick = "eliminarLibro(${libro.titulo})" class="btn btn-sm boton"><i class="bi bi-trash3"></i> Eliminar</button>
+                                <button onClick = "eliminarLibro(${libro.id})" class="btn btn-sm boton"><i class="bi bi-trash3"></i> Eliminar</button>
                             </div>
                         </div>
                     </div>
@@ -121,12 +122,16 @@ function actualizarCarrito() {
 
 // Eliminar del carrito 
 
-const eliminarLibro = (titulo) => {
-    const libro = carrito.find(libro => libro.titulo === titulo);
-    carrito.splice(carrito.indexOf(libro), 1);
+const eliminarLibro = (id) => {
+    const libro = carrito.find(libro => libro.id === id);
+    const libroAEliminar = carrito.find(libro => libro.id === id);
+    if (libroAEliminar.cantidad >= 2) {
+        libroAEliminar.cantidad--;
+    } else if (libroAEliminar.cantidad = 1){
+        carrito.splice(carrito.indexOf(libro), 1);
+    }
     actualizarCarrito();
 };
-
 
 
 // Eliminar todos 

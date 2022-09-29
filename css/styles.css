@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+body {
+    width: 100%;
+}
+
 main {
     margin: 5rem;
 }
@@ -12,8 +16,8 @@ main {
 /* header */
 
 .header__logo {
-    height: 5rem;
-
+    height: 2rem;
+    flex-wrap: nowrap
 }
 
 
