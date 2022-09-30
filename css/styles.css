@@ -33,9 +33,10 @@ main {
 }
 
 
+
 /* navbar */
-.barraNavegación {
-    background-color: hotpink;
+.header__navbar {
+    background-color: rgb(47, 59, 80);
 }
 
 .hotpink {
@@ -75,4 +76,19 @@ main {
 
 .card-body {
     justify-content: baseline;
+}
+
+.carrito__total {
+    color: #414141;
+}
+
+
+/* footer */
+
+.footer {
+    background-color: rgb(47, 59, 80);
+}
+
+.footer__fila {
+    padding: 1rem;
 }
