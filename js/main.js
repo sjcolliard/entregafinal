@@ -20,7 +20,7 @@ const elResplandor = new Libro(2, "El resplandor", "Stephen King", "terror", 978
 const elAmorEn = new Libro(3, "El amor en los tiempos del cólera", "Gabriel García Márquez", "realismo mágico", 9788439735625, 499.99, "colera.jpg", 1);
 const cienAnios = new Libro(4, "Cien años de soledad", "Gabriel García Márquez", "realismo mágico", 9788439732471, 549.99, "soledad.jpg", 1);
 const muerteAnunciada = new Libro(5, "Crónica de una muerte anunciada", "Gabriel García Márquez", "realismo mágico", 9500726076, 299.99, "anunciada.jpg", 1);
-const ladronaLibros = new Libro(6, "La ladrona de libros", "Markus Zusak", "novela histórica", 9788426419866, 399.99, "ladronaLibros.jpg",1);
+const ladronaLibros = new Libro(6, "La ladrona de libros", "Markus Zusak", "novela histórica", 9788426419866, 399.99, "ladronaLibros.jpg", 1);
 const mapaAnhelos = new Libro(7, "El mapa de los anhelos", "Alice Kellen", "novela contemporánea", 9788408258254, 899.99, "mapaAnhelos.jpg", 1);
 const sherlock = new Libro(8, "Sherlock Holmes", "Sir Arthur Conan Doyle", "policial", 9788491054672, 749.99, "sherlock.jpg", 1);
 const orgullo = new Libro(9, "Orgullo y prejuicio", "Jane Austen", "clásicos", 9788491059981, 249.99, "orgullo.jpg", 1);
@@ -42,6 +42,14 @@ stockLibros.push(lasVentajas);
 // Array carrito
 
 const carrito = [];
+
+if (localStorage.getItem("carrito")) {
+    let libro = JSON.parse(localStorage.getItem("carrito"));
+    for(let i = 0; i < carrito.length; i++ ) {
+        carrito.push(libro[i]);
+    
+    }
+}
 
 
 // Sección productos 
@@ -85,6 +93,8 @@ const agregarLibro = (titulo) => {
         carrito.push(libro);
     }
     actualizarCarrito();
+
+    localStorage.setItem("carrito", JSON.stringify(carrito));
 };
 
 
@@ -127,7 +137,7 @@ function actualizarCarrito() {
     divCarrito.innerHTML = aux;
     calcularPrecioTotal();
 
-    localStorage.setItem("carrito", JSON.stringify(carrito));
+    localStorage.getItem("carrito", JSON.stringify(carrito));
 
 };
 
@@ -139,7 +149,7 @@ const eliminarLibro = (id) => {
     const libroAEliminar = carrito.find(libro => libro.id === id);
     if (libroAEliminar.cantidad >= 2) {
         libroAEliminar.cantidad--;
-    } else if (libroAEliminar.cantidad = 1){
+    } else if (libroAEliminar.cantidad = 1) {
         carrito.splice(carrito.indexOf(libro), 1);
     }
     actualizarCarrito();
