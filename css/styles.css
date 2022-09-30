@@ -17,7 +17,8 @@ main {
 
 .header__logo {
     height: 2rem;
-    flex-wrap: nowrap
+    flex-wrap: nowrap;
+    align-items: baseline;
 }
 
 
@@ -36,7 +37,8 @@ main {
 
 /* navbar */
 .header__navbar {
-    background-color: rgb(47, 59, 80);
+    background-color: rgb(155, 177, 238);
+    height: 4rem;
 }
 
 .hotpink {
