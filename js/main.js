@@ -116,8 +116,10 @@ function actualizarCarrito() {
     })
     divCarrito.innerHTML = aux;
     calcularPrecioTotal();
-};
 
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+
+};
 
 
 // Eliminar del carrito 
