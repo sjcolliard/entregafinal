@@ -1,4 +1,4 @@
-// Segunda entrega - carrito tienda de ebooks 
+// Avance desafío - carrito tienda de ebooks 
 
 class Libro {
     constructor(id, titulo, autor, genero, isbn, precio, tapa, cantidad) {
@@ -41,15 +41,7 @@ stockLibros.push(lasVentajas);
 
 // Array carrito
 
-const carrito = [];
-
-if (localStorage.getItem("carrito")) {
-    let libro = JSON.parse(localStorage.getItem("carrito"));
-    for(let i = 0; i < carrito.length; i++ ) {
-        carrito.push(libro[i]);
-    
-    }
-}
+const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 
 // Sección productos 
@@ -87,11 +79,13 @@ stockLibros.forEach(libro => {
 const agregarLibro = (titulo) => {
     const libro = stockLibros.find(libro => libro.titulo === titulo);
     const libroAgregado = carrito.find(libro => libro.titulo === titulo);
-    if (libroAgregado) {
-        libroAgregado.cantidad++;
-    } else {
-        carrito.push(libro);
-    }
+    /* if (libroAgregado) {
+         libroAgregado.cantidad++;
+     } else {
+         carrito.push(libro);
+     }*/
+
+    libroAgregado ? libroAgregado.cantidad++ : carrito.push(libro);
     actualizarCarrito();
 
     localStorage.setItem("carrito", JSON.stringify(carrito));
@@ -147,12 +141,15 @@ function actualizarCarrito() {
 const eliminarLibro = (id) => {
     const libro = carrito.find(libro => libro.id === id);
     const libroAEliminar = carrito.find(libro => libro.id === id);
-    if (libroAEliminar.cantidad >= 2) {
+    /*if (libroAEliminar.cantidad >= 2) {
         libroAEliminar.cantidad--;
     } else if (libroAEliminar.cantidad = 1) {
         carrito.splice(carrito.indexOf(libro), 1);
-    }
+    }*/
+
+    libroAEliminar.cantidad >= 2 ? libroAEliminar.cantidad-- : carrito.splice(carrito.indexOf(libro), 1);
     actualizarCarrito();
+    localStorage.setItem("carrito", JSON.stringify(carrito));
 };
 
 
@@ -162,6 +159,7 @@ const vaciarCarrito = document.getElementById("vaciarCarrito");
 vaciarCarrito.addEventListener("click", () => {
     carrito.splice(0, carrito.length);
     actualizarCarrito();
+    localStorage.setItem("carrito", JSON.stringify(carrito));
 });
 
 
