@@ -69,7 +69,7 @@ stockLibros.forEach(libro => {
     const boton = document.getElementById(`boton${libro.titulo}`);
     boton.addEventListener("click", () => {
         Toastify({
-            text: "El libro fue agregado al carrito",
+            text: `${libro.titulo} fue añadido al carrito`,
             duration: 2500,
             style: {
                 background: "rgba(221, 36, 41, 0.9)",
@@ -148,13 +148,13 @@ const eliminarLibro = (id) => {
     carrito.splice(carrito.indexOf(libro), 1);
 
     Toastify({
-        text: "Libro eliminado",
+        text: `${libro.titulo} fue eliminado`,
         duration: 1500,
         style: {
             background: "rgba(221, 36, 41, 0.8)",
         },
     }).showToast();
-    
+
     actualizarCarrito();
     localStorage.setItem("carrito", JSON.stringify(carrito));
 };
