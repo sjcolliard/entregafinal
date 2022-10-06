@@ -68,6 +68,14 @@ stockLibros.forEach(libro => {
 
     const boton = document.getElementById(`boton${libro.titulo}`);
     boton.addEventListener("click", () => {
+        Toastify({
+            text: "El libro fue agregado al carrito",
+            duration: 2500,
+            style: {
+                background: "rgba(221, 36, 41, 0.9)",
+            },
+        }).showToast();
+
         agregarLibro(libro.titulo);
         actualizarCarrito();
     })
@@ -79,11 +87,6 @@ stockLibros.forEach(libro => {
 const agregarLibro = (titulo) => {
     const libro = stockLibros.find(libro => libro.titulo === titulo);
     const libroAgregado = carrito.find(libro => libro.titulo === titulo);
-    /* if (libroAgregado) {
-         libroAgregado.cantidad++;
-     } else {
-         carrito.push(libro);
-     }*/
 
     libroAgregado ? libroAgregado.cantidad++ : carrito.push(libro);
     actualizarCarrito();
@@ -141,13 +144,17 @@ function actualizarCarrito() {
 const eliminarLibro = (id) => {
     const libro = carrito.find(libro => libro.id === id);
     const libroAEliminar = carrito.find(libro => libro.id === id);
-    /*if (libroAEliminar.cantidad >= 2) {
-        libroAEliminar.cantidad--;
-    } else if (libroAEliminar.cantidad = 1) {
-        carrito.splice(carrito.indexOf(libro), 1);
-    }*/
+    libroAEliminar.cantidad >= 2 ? libroAEliminar.cantidad-- : 
+    carrito.splice(carrito.indexOf(libro), 1);
 
-    libroAEliminar.cantidad >= 2 ? libroAEliminar.cantidad-- : carrito.splice(carrito.indexOf(libro), 1);
+    Toastify({
+        text: "Libro eliminado",
+        duration: 1500,
+        style: {
+            background: "rgba(221, 36, 41, 0.8)",
+        },
+    }).showToast();
+    
     actualizarCarrito();
     localStorage.setItem("carrito", JSON.stringify(carrito));
 };
@@ -173,3 +180,5 @@ const calcularPrecioTotal = () => {
     });
     precioTotal.innerHTML = total.toFixed(2);
 }
+
+

@@ -29,6 +29,7 @@ main {
 .subtitulo {}
 
 .boton {
+    /*background-color: rgba(255, 105, 180, 0.699);*/
     background-color: hotpink;
     text-align: center;
 }
@@ -37,12 +38,16 @@ main {
 
 /* navbar */
 .header__navbar {
-    background-color: rgb(155, 177, 238);
+    background-color: rgb(255, 193, 202);
     height: 4rem;
 }
 
 .hotpink {
     color: hotpink;
+}
+
+.logo {
+    height: 95%;
 }
 
 
@@ -85,12 +90,32 @@ main {
 }
 
 
-/* footer */
-
-.footer {
-    background-color: rgb(47, 59, 80);
-}
-
+/* footerRGB: (221, 36, 41) 
 .footer__fila {
     padding: 1rem;
 }
+
+
+
+
+/* Colores que quiero usar - Paleta*/
+
+/* Light Pink - 
+RGB: (255, 168, 181) */
+
+/* Light Red -
+RGB: (255, 204, 203) */
+
+/* Pastel Red -
+RGB: (255, 104, 99)*/
+
+/* Maximum Red -
+RGB: (221, 36, 41) */
+
+
+
+/* Color primario: rgb(228, 40, 63) */
+
+/* color secundario: rgb(255, 193, 202) */
+
+/* color terciario: */ 
