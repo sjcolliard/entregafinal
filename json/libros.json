@@ -1,0 +1,13 @@
+[
+    {"id": 1, "titulo": "Misery", "autor": "Stephen King", "genero": "terror", "isbn": 9788466345262, "precio": 299.99, "tapa": "misery.jpg", "cantidad": 1},
+    {"id": 2, "titulo": "El resplandor", "autor": "Stephen King", "genero": "terror", "isbn": 9788499899275, "precio": 349.99, "tapa": "resplandor.jpg", "cantidad": 1},
+    {"id": 3, "titulo": "El amor en los tiempos del cólera", "autor": "Gabriel García Márquez", "genero": "realismo mágico", "isbn": 9788439735625, "precio": 499.99, "tapa": "colera.jpg", "cantidad": 1},
+    {"id": 4, "titulo": "Cien años de soledad", "autor": "Gabriel García Márquez", "genero": "realismo mágico", "isbn": 9788439732471, "precio": 549.99, "tapa": "soledad.jpg", "cantidad": 1},
+    {"id": 5, "titulo": "Crónica de una muerte anunciada", "autor": "Gabriel García Márquez", "genero": "realismo mágico", "isbn": 9500726076, "precio": 299.99, "tapa": "anunciada.jpg", "cantidad": 1},
+    {"id": 6, "titulo": "La ladrona de libros", "autor": "Markus Zusak", "genero": "novela histórica", "isbn": 9788426419866, "precio": 399.99, "tapa": "ladronaLibros.jpg", "cantidad": 1},
+    {"id": 7, "titulo": "El mapa de los anhelos", "autor": "Alice Kellen", "genero": "novela contemporánea", "isbn": 9788408258254, "precio": 899.99, "tapa": "mapaAnhelos.jpg", "cantidad": 1},
+    {"id": 8, "titulo": "Sherlock Holmes", "autor": "Sir Arthur Conan Doyle", "genero": "policial", "isbn": 9788491054672, "precio": 749.99, "tapa": "sherlock.jpg", "cantidad": 1},
+    {"id": 9, "titulo": "Orgullo y prejuicio", "autor": "Jane Austen", "genero": "clásicos", "isbn": 9788491059981, "precio": 249.99, "tapa": "orgullo.jpg", "cantidad": 1},
+    {"id": 10, "titulo": "Las ventajas de ser invisible", "autor": "Stephen Chbosky", "genero": "juvenil", "isbn": 9786071132413, "precio": 64.00, "tapa": "lasVentajas.jpg", "cantidad": 1}
+]
+
