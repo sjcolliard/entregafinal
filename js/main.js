@@ -14,14 +14,15 @@
 const lanzamientos = document.getElementById("lanzamientos");
 
 const stockDeLibros = "json/libros.json";
-
+let stockLibros 
 const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 
 fetch(stockDeLibros)
     .then(respuesta => respuesta.json())
     .then(libros => {
-        libros.forEach(libro => {
+        stockLibros = libros
+        stockLibros.forEach(libro => {
             const section = document.createElement("section");
             section.innerHTML += `<div class="card my-3" style="width: 15rem; height: 31.5rem;">
             <img src="./img/${libro.tapa}" class="card-img-top" alt="Tapa del libro ${libro.titulo}">
@@ -37,7 +38,7 @@ fetch(stockDeLibros)
             </div>
             </div>`;
 
-            lanzamientos.append(section);
+            lanzamientos.appendChild(section);
 
             const boton = document.getElementById(`boton${libro.id}`);
             boton.addEventListener("click", () => {
@@ -53,21 +54,20 @@ fetch(stockDeLibros)
                 actualizarCarrito();
             })
         })
-    })
-    .catch(error => console.log(error))
-    .finally(() => console.log("Proceso Finalizado"));
+    });
 
     
 // Función agregar al carrito
 
 const agregarLibro = (titulo) => {
-    const libro = stockDeLibros.find(libro => libro.titulo === titulo);
-    const libroAgregado = carrito.find(libro => libro.titulo === titulo);
+    const libro = stockLibros.find(libro => libro.id === titulo);
+    const libroAgregado = carrito.find(libro => libro.id === titulo);
 
     libroAgregado ? libroAgregado.cantidad++ : carrito.push(libro);
     actualizarCarrito();
 
     localStorage.setItem("carrito", JSON.stringify(carrito));
+    console.log(carrito);
 };
 
 
